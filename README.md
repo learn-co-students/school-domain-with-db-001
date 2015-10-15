@@ -39,7 +39,7 @@ We begin by briefly discussing what an ORM is and how the `environment.rb` file 
     end
     ```
 
-  Our test first make sure that we are starting with a clean database by executing the SQL command `DROP TABLE IF EXISTS students`.
+  Our test first makes sure that we are starting with a clean database by executing the SQL command `DROP TABLE IF EXISTS students`.
 
   Next we call the soon to be defined `create_table` method, which is responsible for creating a table called students with the appropriate columns.
 
