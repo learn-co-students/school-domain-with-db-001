@@ -41,7 +41,7 @@ We begin by briefly discussing what an ORM is and how the `environment.rb` file 
 
   Our test first make sure that we are starting with a clean database by executing the SQL command `DROP TABLE IF EXISTS students`.
 
-  Next we call the soon to be defined `create_table` method, which is responsible for creatng a table called students with the appropriate columns.
+  Next we call the soon to be defined `create_table` method, which is responsible for creating a table called students with the appropriate columns.
 
   ![sqlite_master](http://dl.dropboxusercontent.com/s/j98mxmd5d4uec9g/2014-02-18%20at%2011.21%20AM.png)
 
@@ -59,25 +59,25 @@ This method will drop the students table from the database.
   end
 ```
 
-  It is basically the exact opposite of the previous test. Your job is to   define a class method on `Student` that will execute the correct SQL to drop  a students table.
+  It is basically the exact opposite of the previous test. Your job is to  define a class method on `Student` that will execute the correct SQL to drop  a students table.
 
 -  **RSpec Test 4: `#insert`**
 
   This method will do the heavy lifting of inserting a student instance into    the database.
 
-  The test simply instantiates a student and then calls insert. The   expectation is that if we then run a simple SELECT looking for that student   by name (I know, not the best thing to measure, but it'll do), we should  find a row with that very data.
+  The test simply instantiates a student and then calls insert. The   expectation is that if we then run a simple SELECT looking for that student   by name (I know, not the best thing to measure, but it'll do), we should find a row with that very data.
 
   The second test in the insert describe block is a bit more abstract. The  basic premise is that after we insert a student into the database, the  database has assigned it an auto-incrementing primary key. We have to update  the current instance with this ID value otherwise this instance does not  fully mirror the current state in the DB. To implement this behavior, you   will need to know how to ask SQLite3 for the last inserted ID in a table,   which would be: `SELECT last_insert_rowid() FROM students` [law insert rowid()](http://www.sqlite.org/lang_corefunc.html#last_insert_rowid)
 
 - **RSpec Test 5: `::new_from_db`**
 
-  This is an interesting method. Ultimately, the database is going to   return an array representing a student's data. We need a way to cast that   data into the appropriate attributes of a student. This method  encapsulates that functionality. You can even think of it as  new_from_array. Methods like this, that return instances of the class,  are known as constructors, just like `::new`, except that they extend the   functionality of `::new` without overwriting `initialize`
+  This is an interesting method. Ultimately, the database is going to return an array representing a student's data. We need a way to cast that data into the appropriate attributes of a student. This method  encapsulates that functionality. You can even think of it as  new_from_array. Methods like this, that return instances of the class,  are known as constructors, just like `::new`, except that they extend the   functionality of `::new` without overwriting `initialize`
 
 - **RSpec Test 5: `::find_by_name`**
 
   This spec will first insert a student into the database and then attempt to   find it by calling the find_by_name method. The expectations are that an  instance of the student class that has all the properties of a student is   returned, not primitive data.
 
-  Internally, what will the find_by_name method do to find a student, which   SQL statement must it run? Additionally, what method might find_by_name use   internally to quickly take a row and create an instance to represent that   data?
+  Internally, what will the find_by_name method do to find a student, which   SQL statement must it run? Additionally, what method might find_by_name use internally to quickly take a row and create an instance to represent that data?
 
 - **RSpec Test 5: `#update`**
 
