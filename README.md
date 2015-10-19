@@ -1,9 +1,3 @@
----
-  tags: sqlite, orm, object orientation
-  languages: sql, ruby
-  resources: 1
----
-
 # Basic Student ORM
 
 This lab involves building a basic ORM for a Student object.  The `Student` class defined in `lib/student.rb` implements behaviors of a basic ORM.  
