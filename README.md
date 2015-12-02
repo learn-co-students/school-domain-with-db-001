@@ -125,3 +125,5 @@ This method will drop the students table from the database.
 
 ## Resources
 * [Wikipedia](http://en.wikipedia.org/) - [Object-Relational Mapping](http://en.wikipedia.org/wiki/Object-relational_mapping)
+
+<a href='https://learn.co/lessons/school-domain-with-db' data-visibility='hidden'>View this lesson on Learn.co</a>
