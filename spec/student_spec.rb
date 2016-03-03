@@ -141,7 +141,7 @@ describe Student do
       avi.update
 
       avi_from_db = Student.find_by_name("Avi")
-      expect(avi_from_db).to be_nil
+      expect(avi_from_db.name).to be_nil
 
       bob_from_db = Student.find_by_name("Bob")
       expect(bob_from_db).to be_an_instance_of(Student)
