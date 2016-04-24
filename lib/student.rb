@@ -2,8 +2,8 @@ class Student
 
   attr_accessor :id, :name, :tagline, :github, :twitter, :blog_url, :image_url, :biography
 
-  def Student.create_table
-    "CREATE TABLE students (
+  def self.create_table
+    sql = "CREATE TABLE students (
       id INTEGER PRIMARY KEY,
       name TEXT,
       tagline TEXT,
@@ -14,4 +14,6 @@ class Student
       biography TEXT
       )"
   end
+
+  DB[:conn].execute(sql)
 end
